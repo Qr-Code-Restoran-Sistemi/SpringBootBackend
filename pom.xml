@@ -7,11 +7,11 @@
 		<version>2.7.1</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>springsiparisler</groupId>
-	<artifactId>springsiparisler</artifactId>
+	<groupId>Siparis</groupId>
+	<artifactId>Spring_SiparisBackEnd</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>springsiparisler</name>
-	<description>Demo project for Spring Boot</description>
+	<name>Spring_SiparisBackEnd</name>
+	<description>Eclipse ile Siparis BackEnd</description>
 	<properties>
 		<java.version>18</java.version>
 	</properties>
@@ -28,7 +28,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -50,5 +49,6 @@
 			</plugin>
 		</plugins>
 	</build>
+
 
 </project>
