@@ -8,7 +8,6 @@ public class SpringSiparisBackEndApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringSiparisBackEndApplication.class, args);
-		System.out.print("Merhaba");  
+		System.out.println("Application: Connected.");
 	}
-
 }
