@@ -20,30 +20,59 @@ class SpringSiparisBackEndApplicationTests {
 	}
 
 	@Test
-	void SiparisKaydet() {
+	void SiparisTest() {
+//		Saving
 		SiparisModel siparisModel = new SiparisModel();
 		UrunModel urunModel = new UrunModel();
 		siparisModel.setMasaNo(15);
-		String[] icindekiler = { "patates", "sogan" };
+		String[] icindekiler = { "Seftali", "Kiraz" };
 		int fiyat = 15;
-		String urunAd = "pattes";
+		String urunAd = "Bagel";
 		urunModel.setUrun(urunAd);
 		urunModel.setFiyat(fiyat);
 		urunModel.setIcindekiler(icindekiler);
-		String[] Ekstralar = { "patates" };
+		String[] Ekstralar = { "Mayonez" };
+		UrunModel[] urun = new UrunModel[1];
+		urun[0] = new UrunModel(urunAd, fiyat, icindekiler);
+		siparisModel.setUrun(urun);
 		siparisModel.setEkstralar(Ekstralar);
-		siparisModel.setNot("cileki");
+		siparisModel.setNot("Cilek");
 		siparisModel.setToplamFiyat(250);
 		siparisModel.setSiparisAktifMi(true);
 		siparisRepository.save(siparisModel);
-		System.out.println("id: " + siparisModel.getId());
-		System.out.println("Masa: " + siparisModel.getMasaNo());
-		System.out.println("Urun Adi:" + urunAd);
-		System.out.println("Fiyat:" + fiyat);
-		System.out.println("Icerik:" + icindekiler[0]);
-		System.out.println("Ekstra: " + Ekstralar[0]);
-		System.out.println("Not: " + siparisModel.getNot());
-		System.out.println("Fiyat: " + siparisModel.getToplamFiyat());
-		System.out.println("Siparis Durumu: " + siparisModel.isSiparisAktifMi());
+//		Terminal
+		System.out.println("Siparis : \n" + "id: " + siparisModel.getId() + "\nMasa No : " + siparisModel.getMasaNo()
+				+ "\nUrun Adi:" + urunAd + "\nFiyat:" + fiyat + "\nIcerik:" + icindekiler[0] + " ve " + icindekiler[1]
+				+ "\nEkstra: " + Ekstralar[0] + "\nNot: " + siparisModel.getNot() + "\nToplam Fiyat: "
+				+ siparisModel.getToplamFiyat() + "\nSiparis Durumu:" + siparisModel.isSiparisAktifMi());
+//		Updating 
+		siparisRepository.findById(siparisModel.getId());
+		siparisModel.setMasaNo(40);
+		String[] updateİcindekiler = { "Update Seftali", "Update Kiraz" };
+		int updatefiyat = 30;
+		String updateUrunAd = "Update Bagel";
+		urunModel.setUrun(updateUrunAd);
+		urunModel.setFiyat(updatefiyat);
+		urunModel.setIcindekiler(updateİcindekiler);
+		String[] updateEkstralar = { "Update Mayonez" };
+		UrunModel[] updateUrun = new UrunModel[1];
+		urun[0] = new UrunModel(updateUrunAd, updatefiyat, updateİcindekiler);
+		siparisModel.setUrun(updateUrun);
+		siparisModel.setEkstralar(updateEkstralar);
+		siparisModel.setNot("Update Cilek");
+		siparisModel.setToplamFiyat(500);
+		siparisModel.setSiparisAktifMi(false);
+		siparisRepository.save(siparisModel);
+//		Updated Terminal
+		System.out.println("\nUpdate Siparis : \n" + "id: " + siparisModel.getId() + "\nMasa No : "
+				+ siparisModel.getMasaNo() + "\nUrun Adi:" + updateUrunAd + "\nFiyat:" + updatefiyat + "\nIcerik:"
+				+ updateİcindekiler[0] + " ve " + updateİcindekiler[1] + "\nEkstra: " + updateEkstralar[0] + "\nNot: "
+				+ siparisModel.getNot() + "\nToplam Fiyat: " + siparisModel.getToplamFiyat() + "\nSiparis Durumu:"
+				+ siparisModel.isSiparisAktifMi());
+//		Listing
+		System.out.println(siparisRepository.findAll());
+
+//		Deleting
+		siparisRepository.deleteById(siparisModel.getId());
 	}
 }
