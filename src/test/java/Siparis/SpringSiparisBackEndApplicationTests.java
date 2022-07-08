@@ -15,11 +15,6 @@ class SpringSiparisBackEndApplicationTests {
 	private SiparisRepository siparisRepository;
 
 	@Test
-	void contextLoads() {
-
-	}
-
-	@Test
 	void SiparisTest() {
 //		Saving
 		SiparisModel siparisModel = new SiparisModel();
@@ -41,7 +36,7 @@ class SpringSiparisBackEndApplicationTests {
 		siparisModel.setSiparisAktifMi(true);
 		siparisRepository.save(siparisModel);
 //		Terminal
-		System.out.println("Siparis : \n" + "id: " + siparisModel.getId() + "\nMasa No : " + siparisModel.getMasaNo()
+		System.out.println("\nSiparis : \n" + "id: " + siparisModel.getId() + "\nMasa No : " + siparisModel.getMasaNo()
 				+ "\nUrun Adi:" + urunAd + "\nFiyat:" + fiyat + "\nIcerik:" + icindekiler[0] + " ve " + icindekiler[1]
 				+ "\nEkstra: " + Ekstralar[0] + "\nNot: " + siparisModel.getNot() + "\nToplam Fiyat: "
 				+ siparisModel.getToplamFiyat() + "\nSiparis Durumu:" + siparisModel.isSiparisAktifMi());
@@ -69,9 +64,6 @@ class SpringSiparisBackEndApplicationTests {
 				+ updateİcindekiler[0] + " ve " + updateİcindekiler[1] + "\nEkstra: " + updateEkstralar[0] + "\nNot: "
 				+ siparisModel.getNot() + "\nToplam Fiyat: " + siparisModel.getToplamFiyat() + "\nSiparis Durumu:"
 				+ siparisModel.isSiparisAktifMi());
-//		Listing
-		System.out.println(siparisRepository.findAll());
-
 //		Deleting
 		siparisRepository.deleteById(siparisModel.getId());
 	}
